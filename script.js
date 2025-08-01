@@ -1,8 +1,3 @@
-const myLibrary = [dune];
-const submit = document.getElementById('submitButton')
-
-submit.addEventListener('click',()=> submit.textContent='uwu')
-
 const dune = {
     author:'Frank Herbert',
     title:'Dune',
@@ -10,6 +5,15 @@ const dune = {
     year:1969,
     id:1,
  }
+const myLibrary = [dune];
+const submit = document.getElementById('submitButton')
+const openModalButton= document.getElementById('openModal')
+const modalDialog= document.getElementById('modalDialog')
+
+submit.addEventListener('click',()=> submit.textContent='uwu')
+openModalButton.addEventListener('click', ()=> {modalDialog.showModal()
+    console.log('working')
+})
 
 function Book(author, title, pages, year) {
   // the constructor...
@@ -28,5 +32,5 @@ function addBookToLibrary() {
 
 function displayBooks(){
     //displays the books in the array
-    document.createElement 
+    document.createElement('div')
 }
