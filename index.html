@@ -4,14 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <dialog>
-        <form>
-            <label>Author</label><input type="text">
-            <label>Title</label><input type="text">
-            <label>Number Of Pages</label><input type="text">
-        </form>
-    </dialog>
+    <div id="buttons">
+        <button>Add a book!</button>
+        <dialog>
+            <form>
+                <label for="newAuthor">Author</label><input type="text" id="newAuthor" name="newAuthor">
+                <label for="newTitle">Title</label><input type="text" id="newTitle" name="newTitle">
+                <label for="newPages">Number Of Pages</label><input type="text" id="newPages" name="newPages">
+                <label for="newYear">Year of publication</label><input type="number" id="newYear" name="newYear">
+                <button type="submit" id="submitButton">click to add</button>
+            </form>
+        </dialog>
+    </div>
+    <div id="bookDisplay">    </div>
 </body>
 </html>
