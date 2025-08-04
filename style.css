@@ -1,6 +1,7 @@
 body{
     display: grid;
-    grid-column: 1fr fr;
+    grid-template-columns: auto 3fr;
+    grid-auto-flow: column;
 }
 
 form{
@@ -8,4 +9,33 @@ form{
     flex-direction: column;
     padding: 1rem;
     gap: 1rem;
+}
+
+#bookDisplay{
+    border: solid;
+}
+
+.newBookCard{
+    display: flex;
+    background-color: lightgrey;
+    flex-wrap: wrap;
+    height: 15rem;
+    gap: 1rem; 
+    padding: 1rem;
+    justify-content: center;
+}
+
+.newBookCard > div{
+    border: solid;
+    /* width: 90%; */
+    flex-basis: 90%;
+    height: 11rem;
+    font-weight: 700;
+    font-size: 4rem;
+    text-align: center;
+    background-color: white;
+}
+
+.newBookCard > button {
+    flex-grow: 1;
 }

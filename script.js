@@ -9,6 +9,7 @@ const myLibrary = [dune];
 const submit = document.getElementById('submitButton')
 const openModalButton= document.getElementById('openModal')
 const modalDialog= document.getElementById('modalDialog')
+const bookDisplay= document.getElementById('bookDisplay')
 
 submit.addEventListener('click',()=> submit.textContent='uwu')
 openModalButton.addEventListener('click', ()=> {modalDialog.showModal()
@@ -30,7 +31,20 @@ function addBookToLibrary() {
   myLibrary.push(newBook)
 }
 
-function displayBooks(){
-    //displays the books in the array
-    document.createElement('div')
+function displayBooks(bookList){
+  //displays the books in the array
+  const bookCard = document.createElement('div')
+  bookCard.classList.add('newBookCard')
+  const title = document.createElement('div')
+  title.textContent = bookList.title
+  bookCard.appendChild(title)
+  const markAsReadButton = document.createElement('button')
+  const deleteBookButton = document.createElement('button')
+  markAsReadButton.textContent = 'Mark as read'
+  deleteBookButton.textContent = 'Delete'
+  bookCard.appendChild(markAsReadButton)
+  bookCard.appendChild(deleteBookButton)
+  bookDisplay.appendChild(bookCard)
 }
+
+displayBooks(dune)
