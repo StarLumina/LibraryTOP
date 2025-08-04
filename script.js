@@ -4,7 +4,9 @@ const dune = {
     pages:676,
     year:1969,
     id:1,
- }
+}
+ 
+
 const myLibrary = [dune];
 const submit = document.getElementById('submitButton')
 const openModalButton= document.getElementById('openModal')
@@ -33,18 +35,47 @@ function addBookToLibrary() {
 
 function displayBooks(bookList){
   //displays the books in the array
-  const bookCard = document.createElement('div')
-  bookCard.classList.add('newBookCard')
-  const title = document.createElement('div')
-  title.textContent = bookList.title
-  bookCard.appendChild(title)
-  const markAsReadButton = document.createElement('button')
-  const deleteBookButton = document.createElement('button')
-  markAsReadButton.textContent = 'Mark as read'
-  deleteBookButton.textContent = 'Delete'
-  bookCard.appendChild(markAsReadButton)
-  bookCard.appendChild(deleteBookButton)
-  bookDisplay.appendChild(bookCard)
+
+  //creates element for library
+  for (const book of bookList) {
+    console.log(book)
+    const bookCard = document.createElement('div')
+    bookCard.classList.add('newBookCard')
+    bookCard.dataset.id = book.id
+    const title = document.createElement('div')
+    const bookName = document.createElement('h6')
+    const bookDesc = document.createElement('p')
+    bookDesc.textContent = `${book.author} / ${book.pages} pages / ${book.year}`
+    bookName.textContent = book.title
+    title.appendChild(bookName)
+    title.appendChild(bookDesc)
+    bookCard.appendChild(title)
+    const markAsReadButton = document.createElement('button')
+    const deleteBookButton = document.createElement('button')
+    markAsReadButton.textContent = 'Mark as read'
+    deleteBookButton.textContent = 'Delete'
+    deleteBookButton.dataset.id = book.id
+    deleteBookButton.addEventListener('click',(event)=>deleteBook(event))
+    bookCard.appendChild(markAsReadButton)
+    bookCard.appendChild(deleteBookButton)
+    bookDisplay.appendChild(bookCard)
+  }
 }
 
-displayBooks(dune)
+function deleteBook(event){
+  for (let i =0; i<myLibrary.length; i++) {
+    if (event.target.dataset.id=myLibrary[i].id){
+      myLibrary.splice(i,1)
+    }
+  }
+  let bookChoppingBlock = document.getElementsByClassName('newBookCard')
+  for (let i =0; i<bookChoppingBlock.length; i++) {
+    if (event.target.dataset.id=bookChoppingBlock[i].dataset.id){
+      bookChoppingBlock[i].remove()
+    }
+  }
+}
+
+displayBooks(myLibrary)
+displayBooks(myLibrary)
+
