@@ -40,7 +40,7 @@ form{
     border: solid;
     /* width: 90%; */
     flex-basis: 90%;
-    height: 11rem;
+    height: 15rem;
     text-align: center;
     background-color: white;
     line-height: 0;
@@ -48,16 +48,19 @@ form{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .newBookCard >div > h6{
     font-weight: 700;
     font-size: 3rem;
+    margin-top: 24px;
+    margin-bottom:24px;
 }
 
 p{
     font-size: 1rem;
-    color: gray;
+    color: grey;
 }
 
 .newBookCard > button {
